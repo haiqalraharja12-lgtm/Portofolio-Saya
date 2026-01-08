@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haiqal Afnan | Web Developer & UMKM Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #6F1E1E;
+            --cream: #F5EEDC;
+            --dark-gray: #1C1C1C;
+            --gold: #C6A667;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: var(--dark-gray);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        nav .logo {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            background: linear-gradient(rgba(28, 28, 28, 0.9), rgba(28, 28, 28, 0.9)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            color: var(--white);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--gold);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--cream);
+        }
+
+        .hero-img img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 5px solid var(--gold);
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(198, 166, 103, 0.5);
+        }
+
+        .btn-cta {
+            background-color: var(--maroon);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 1px solid var(--gold);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--maroon);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            border-bottom: 5px solid var(--gold);
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-card i {
+            font-size: 2rem;
+            color: var(--maroon);
+            margin-bottom: 15px;
+        }
+
+        .portfolio-card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: var(--dark-gray);
+            color: var(--gold);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid var(--gold);
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-info a {
+            display: block;
+            margin-bottom: 15px;
+            color: var(--maroon);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: var(--cream);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+                padding-top: 100px;
+            }
+            .hero-img img {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 20px;
+            }
+            .hero-text h1 { font-size: 2.2rem; }
+            .contact-container { grid-template-columns: 1fr; }
+            nav ul { display: none; } /* Mobile menu can be added with JS */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">HA.Dev</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-text" data-aos="fade-right">
+            <h1>Haiqal Afnan</h1>
+            <p>Web Developer & UMKM Website Specialist</p>
+            <a href="https://wa.me/6287872530432" class="btn-cta"><i class="fab fa-whatsapp"></i> Contact Me</a>
+        </div>
+       <div class="hero-img" data-aos="fade-left">
+    <img src="foto-haiqal.jpg" alt="Haiqal Afnan">
+</div>
+
+    </section>
+
+    <section id="about" data-aos="fade-up">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>Saya adalah seorang developer yang berfokus membantu digitalisasi bisnis lokal di Indonesia. Spesialisasi saya adalah membangun website untuk <strong>Coffee Shop, Angkringan, dan berbagai UMKM</strong>. Saya percaya bahwa setiap bisnis kecil berhak memiliki tampilan digital yang mewah dan fungsional untuk meningkatkan penjualan.</p>
+        </div>
+    </section>
+
+    <section id="portfolio" style="background: #eee;">
+        <h2 class="section-title">My Projects</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card" data-aos="zoom-in">
+                <i class="fas fa-utensils"></i>
+                <h3>Digital Menu & Ordering</h3>
+                <p>Sistem menu digital dengan fitur pemesanan online langsung ke dapur.</p>
+            </div>
+            <div class="portfolio-card" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Reservation System</h3>
+                <p>Fitur booking meja untuk coffee shop agar pelanggan tidak kehabisan tempat.</p>
+            </div>
+            <div class="portfolio-card" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-qrcode"></i>
+                <h3>QRIS Integration</h3>
+                <p>Pembayaran otomatis menggunakan QRIS yang aman dan cepat.</p>
+            </div>
+            <div class="portfolio-card" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fas fa-chart-line"></i>
+                <h3>Sales Tracking</h3>
+                <p>Dashboard untuk pemilik UMKM memantau laporan penjualan harian.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" data-aos="fade-up">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-list">
+            <div class="skill-item">HTML</div>
+            <div class="skill-item">CSS</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">React</div>
+            <div class="skill-item">Node.js</div>
+            <div class="skill-item">Replit</div>
+            <div class="skill-item">QRIS Integration</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container" data-aos="fade-up">
+            <div class="contact-info">
+                <p style="margin-bottom: 20px;">Siap membuat bisnis Anda Go Digital? Hubungi saya sekarang.</p>
+                <a href="https://wa.me/6287872530432"><i class="fab fa-whatsapp"></i> WhatsApp: +62 878-7253-0432</a>
+                <a href="mailto:haiqal.raharja12@gmail.com"><i class="far fa-envelope"></i> Email: haiqal.raharja12@gmail.com</a>
+            </div>
+            <div class="map-placeholder">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126894.03260759328!2d107.0185955!3d-6.3986475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6995648839d37f%3A0x401576d14193010!2sJonggol%2C%20Bogor%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Haiqal Afnan. Build with ❤️ using Replit. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
